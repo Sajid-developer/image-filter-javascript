@@ -1,2 +1,2 @@
-# image-filter-javascript
-🌟An image filter using Html, Css &amp; JavaScript.
+# Image filter javascript
+🌟An image filter using Html, Css & JavaScript.
