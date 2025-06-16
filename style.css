@@ -7,6 +7,7 @@
 body {
     background-color: rgb(21, 6, 35);
     overflow-x: hidden;
+    user-select: none;
 }
 
 ::-webkit-scrollbar {
