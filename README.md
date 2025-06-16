@@ -3,6 +3,6 @@
 
 ---
 
-## 📷 Screenshots
+## 📷 Screenshot
 
 ![Screenshot](images/screenshot.png)
