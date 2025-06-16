@@ -9,7 +9,7 @@ btns.forEach(btn => {
     btn.addEventListener("click", (e) => {
         document.querySelector(".btn.active").classList.remove("active");
         btn.classList.add("active");
-        console.log(`${btn.textContent} has been selected. ✅`);
+        console.log(`${btn.textContent} tab has been selected. ✅`);
 
         imgBox.classList.add("anime");
         setTimeout(() => {
