@@ -4,121 +4,7 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>Image filter</title>
-
-   <style type="text/css">
-      *,
-      body{
-         margin: 0;
-         padding: 0;
-         box-sizing: border-box;
-         background-color: rgb(21, 6, 35);
-      }
-      body {
-         overflow-x: hidden;
-      }
-   
-      ::-webkit-scrollbar{
-         width: 6px;
-      }
-      ::-webkit-scrollbar-thumb{
-         background-color: rgb(77, 0, 149);
-      }
-
-      .gallery {
-         width: 100vw;
-         height: 100vh;
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-      }
-
-      .gallery .buttons {
-         width: 100%;
-         margin-top: 30px;
-         display: flex;
-         flex-wrap: wrap;
-         justify-content: center;
-         align-items: center;
-      }
-
-      .buttons .btn {
-         background: transparent;
-         padding: 8px 26px;
-         font-family: sans-serif;
-         font-size: 13px;
-         color: deepskyblue;
-         letter-spacing: 0.6px;
-         outline: none;
-         margin: 8px 10px;
-         border: 0;
-         border: 2px solid deepskyblue;
-         border-radius: 20px;
-         transition: 0.3s ease;
-         cursor: pointer;
-      }
-
-      .btn.active {
-         background: rgba(24, 179, 231, 0.4);
-         color: white;
-      }
-
-      .gallery .images {
-         width: 100%;
-         display: flex;
-         justify-content: center;
-         flex-wrap: wrap;
-         gap: 30px;
-         margin: 50px 0;
-      }
-
-      .images.anime {
-         animation: fadeIn 0.7s ease-in-out;
-      }
-
-      @keyframes fadeIn {
-         0% {
-            opacity: 0;
-            filter: blur(2px);
-            transform: translateY(20px);
-         }
-
-         100% {
-            opacity: 1;
-            filter: blur(0px);
-            transform: translateY(0px);
-            ;
-         }
-      }
-
-      .images .img {
-         display: flex;
-         width: 350px;
-         height: 220px;
-         object-fit: cover;
-         border-radius: 10px;
-         margin: 7px 0;
-         transform: translateY(0);
-         filter: saturate(40%);
-         transition: 0.3s ease;
-         cursor: pointer;
-      }
-      .images .img:hover{
-         transform: translateY(-10px);
-         filter: saturate(130%);
-      }
-
-      .img.img-expand {
-         display: flex;
-      }
-
-      .img.img-shrink {
-         display: none;
-      }
-
-   </style>
-
 </head>
-
 <body>
 
    <section class="gallery">
@@ -151,7 +37,7 @@
          <img src="images/mountains4.webp" class="img img-expand" data-cat="4">
       </div>
    </section>
-
+   
 
    <script type="text/javascript">
 
