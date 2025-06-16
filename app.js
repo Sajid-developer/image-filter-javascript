@@ -1,5 +1,6 @@
 console.log("App is running successfully...");
 
+
 const btns = document.querySelectorAll(".buttons .btn");
 const imgBox = document.querySelector(".gallery .images");
 const imgs = document.querySelectorAll(".images .img");
@@ -8,6 +9,7 @@ btns.forEach(btn => {
     btn.addEventListener("click", (e) => {
         document.querySelector(".btn.active").classList.remove("active");
         btn.classList.add("active");
+        console.log(`${btn.textContent} has been selected. ✅`);
 
         imgBox.classList.add("anime");
         setTimeout(() => {
