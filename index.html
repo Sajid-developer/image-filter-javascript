@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Image filter</title>
+
+   <style type="text/css">
+      *,
+      body{
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         background-color: rgb(21, 6, 35);
+      }
+      body {
+         overflow-x: hidden;
+      }
+   
+      ::-webkit-scrollbar{
+         width: 6px;
+      }
+      ::-webkit-scrollbar-thumb{
+         background-color: rgb(77, 0, 149);
+      }
+
+      .gallery {
+         width: 100vw;
+         height: 100vh;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      }
+
+      .gallery .buttons {
+         width: 100%;
+         margin-top: 30px;
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         align-items: center;
+      }
+
+      .buttons .btn {
+         background: transparent;
+         padding: 8px 26px;
+         font-family: sans-serif;
+         font-size: 13px;
+         color: deepskyblue;
+         letter-spacing: 0.6px;
+         outline: none;
+         margin: 8px 10px;
+         border: 0;
+         border: 2px solid deepskyblue;
+         border-radius: 20px;
+         transition: 0.3s ease;
+         cursor: pointer;
+      }
+
+      .btn.active {
+         background: rgba(24, 179, 231, 0.4);
+         color: white;
+      }
+
+      .gallery .images {
+         width: 100%;
+         display: flex;
+         justify-content: center;
+         flex-wrap: wrap;
+         gap: 30px;
+         margin: 50px 0;
+      }
+
+      .images.anime {
+         animation: fadeIn 0.7s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+         0% {
+            opacity: 0;
+            filter: blur(2px);
+            transform: translateY(20px);
+         }
+
+         100% {
+            opacity: 1;
+            filter: blur(0px);
+            transform: translateY(0px);
+            ;
+         }
+      }
+
+      .images .img {
+         display: flex;
+         width: 350px;
+         height: 220px;
+         object-fit: cover;
+         border-radius: 10px;
+         margin: 7px 0;
+         transform: translateY(0);
+         filter: saturate(40%);
+         transition: 0.3s ease;
+         cursor: pointer;
+      }
+      .images .img:hover{
+         transform: translateY(-10px);
+         filter: saturate(130%);
+      }
+
+      .img.img-expand {
+         display: flex;
+      }
+
+      .img.img-shrink {
+         display: none;
+      }
+
+   </style>
+
+</head>
+
+<body>
+
+   <section class="gallery">
+      <div class="buttons">
+         <button class="btn active">All</button>
+         <button class="btn" data-btn="1">Romantic</button>
+         <button class="btn" data-btn="2">Happy</button>
+         <button class="btn" data-btn="3">Sad</button>
+         <button class="btn" data-btn="4">Mountains</button>
+      </div>
+
+      <div class="images">
+         <img src="images/romantic.webp" class="img img-expand" data-cat="1">
+         <img src="images/romantic2.webp" class="img img-expand" data-cat="1">
+         <img src="images/romantic3.webp" class="img img-expand" data-cat="1">
+         <img src="images/romantic4.webp" class="img img-expand" data-cat="1">
+         <img src="images/romantic5.jpg" class="img img-expand" data-cat="1">
+         <img src="images/happy.webp" class="img img-expand" data-cat="2">
+         <img src="images/happy2.webp" class="img img-expand" data-cat="2">
+         <img src="images/happy3.webp" class="img img-expand" data-cat="2">
+         <img src="images/happy4.webp" class="img img-expand" data-cat="2">
+         <img src="images/happy5.webp" class="img img-expand" data-cat="2">
+         <img src="images/sad.webp" class="img img-expand" data-cat="3">
+         <img src="images/sad2.webp" class="img img-expand" data-cat="3">
+         <img src="images/sad3.webp" class="img img-expand" data-cat="3">
+         <img src="images/sad4.webp" class="img img-expand" data-cat="3">
+         <img src="images/mountains.webp" class="img img-expand" data-cat="4">
+         <img src="images/mountains2.webp" class="img img-expand" data-cat="4">
+         <img src="images/mountains3.webp" class="img img-expand" data-cat="4">
+         <img src="images/mountains4.webp" class="img img-expand" data-cat="4">
+      </div>
+   </section>
+
+
+   <script type="text/javascript">
+
+      const btns = document.querySelectorAll(".buttons .btn");
+      const imgBox = document.querySelector(".gallery .images");
+      const imgs = document.querySelectorAll(".images .img");
+
+      btns.forEach(btn => {
+         btn.addEventListener("click", (e) => {
+            document.querySelector(".btn.active").classList.remove("active");
+            btn.classList.add("active");
+
+            imgBox.classList.add("anime");
+            setTimeout(() => {
+               imgBox.classList.remove("anime");
+            }, 700);
+
+            imgs.forEach(img => {
+               img.classList.remove("img-shrink");
+               img.classList.add("img-expand");
+
+               const btnType = parseInt(e.target.dataset.btn);
+               const imgType = parseInt(img.dataset.cat);
+
+               if (btnType !== imgType) {
+                  img.classList.add("img-shrink");
+                  img.classList.remove("img-expand");
+               }
+
+            });
+         });
+
+      });
+
+      btns[0].addEventListener("click", () => {
+         imgs.forEach(img => {
+            img.classList.remove("img-shrink");
+            img.classList.add("img-expand");
+         });
+      });
+
+
+   </script>
+
+</body>
+
+</html>
